@@ -1,18 +1,18 @@
 class Atlo < Formula
   desc "Agent-first CLI for Jira Cloud and Confluence Cloud"
   homepage "https://github.com/metryon/atlo"
-  version "0.1.0"
+  version "0.2.0"
   license "MIT"
 
   depends_on :macos
 
   on_arm do
-    url "https://github.com/metryon/atlo/releases/download/v0.1.0/atlo-v0.1.0-darwin-arm64.tar.gz"
-    sha256 "450eedd94ad68fb1ec3d7fffd3a76764a2629161727564ff2baa8ff70d36b32f"
+    url "https://github.com/metryon/atlo/releases/download/v0.2.0/atlo-v0.2.0-darwin-arm64.tar.gz"
+    sha256 "046cf93d413608aad0b793ec7d94e5a8752e839022f7c27c202c39fef7961692"
   end
   on_intel do
-    url "https://github.com/metryon/atlo/releases/download/v0.1.0/atlo-v0.1.0-darwin-amd64.tar.gz"
-    sha256 "7948a9f4b45800a1f35385e6142906f38968463dce6a00dc7ab79cbd0485636d"
+    url "https://github.com/metryon/atlo/releases/download/v0.2.0/atlo-v0.2.0-darwin-amd64.tar.gz"
+    sha256 "4985f65023946c3bc02aba855106bb7a3bd22e4107664227d07e5142ca4f261b"
   end
 
   def install
@@ -23,7 +23,7 @@ class Atlo < Formula
 
   test do
     require "json"
-    assert_equal "v0.1.0", JSON.parse(shell_output("#{bin}/atlo version")).dig("data", "version")
+    assert_equal "v0.2.0", JSON.parse(shell_output("#{bin}/atlo version")).dig("data", "version")
     assert_match "jira issue get", shell_output("#{bin}/atlo schema jira issue get")
   end
 end
